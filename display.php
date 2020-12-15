@@ -2,6 +2,8 @@
     include 'connect.php';
     $q = " select * from curdtable ";
     $query = mysqli_query($con , $q);
+    // query changes
+    // Second day changes
 ?>
 
 
