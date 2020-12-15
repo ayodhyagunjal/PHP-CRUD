@@ -4,8 +4,7 @@ if(isset($_POST['done'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
     $q = " INSERT INTO `curdtable`( `username`, `password`) VALUES ('$username','$password')";
-
-$query = mysqli_query($con , $q);
+    $query = mysqli_query($con , $q);
 
 }
 
