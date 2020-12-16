@@ -1,12 +1,14 @@
 <?php
 
 include 'connect.php';
+$id= $_GET['id'];
+$showquery = "select * from curdtable where id={$id}";
+$showdata = mysqli_query($con,$showquery);
+$arrdata = mysqli_fetch_array($showdata);
 if(isset($_POST['done'])){
-    $id= $_GET['id'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 $q = " UPDATE `curdtable` SET id='$id',username='$username' ,password='$password'  WHERE id='$id' ";
-
 $query = mysqli_query($con , $q);
 header('location:display.php');
 
@@ -35,11 +37,12 @@ header('location:display.php');
         </div><br>
 
         <lable>username:</lable>
-        <input type="text" name="username" class="form-control"><br>
+        <input type="text" name="username"  value="<?php echo $arrdata['username']; ?>"class="form-control"><br>
 
         <lable>password:</lable>
-        <input type="text" name="password" class="form-control"><br>
-        <button class="btn btn-success" type="submit" name="done">Submit</button><br>
+        <input type="text" name="password" class="form-control" value="<?php echo $arrdata['password']; ?>"><br>
+        
+        <button class="btn btn-success" type="submit" name="done" value="update">Submit</button><br>
         </div>
 
 
